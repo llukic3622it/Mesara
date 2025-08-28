@@ -270,11 +270,21 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('korpa') }}">
-                                Korpa
-                                <span class="badge bg-danger cart-count">{{ session('korpa') ? count(session('korpa')) : 0 }}</span>
+                            <a class="nav-link" href="{{ route('pitanja.create') }}">
+                                Postavi pitanje
+                                <span class="badge bg-danger cart-count"></span>
                             </a>
                         </li>
+
+                        {{-- Ako je admin --}}
+                        @if(Auth::check() && Auth::user()->email === 'admin@example.com')
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-warning text-dark" href="http://127.0.0.1:8000/admin">
+                                    🛠 Admin Panel
+                                </a>
+                            </li>
+                        @endif
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                                 Cao, {{ Auth::user()->name }}
@@ -288,6 +298,7 @@
                                 </li>
                             </ul>
                         </li>
+
                     @endguest
                 </ul>
             </div>
@@ -317,7 +328,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card product-card h-100">
                             <div class="position-relative">
-                                <img src="{{ $proizvod->slika ?? 'https://via.placeholder.com/600x400' }}" class="card-img-top product-img" alt="{{ $proizvod->Naziv }}">
+                                <img src="{{ $proizvod->slika ?? 'https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80' }}" class="card-img-top product-img" alt="{{ $proizvod->Naziv }}">
                                 <div class="price-tag">{{ number_format($proizvod->Cena, 0, ',', '.') }} RSD/kg</div>
                             </div>
                             <div class="card-body">

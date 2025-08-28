@@ -270,37 +270,6 @@
             </div>
         </div>
         
-        <div class="quick-actions">
-            <h3 class="text-center mb-4">Brze akcije</h3>
-            
-            <div class="action-buttons">
-                <a href="/admin/porudzbine/create" class="action-btn">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Nova porudžbina</span>
-                </a>
-                
-                <a href="/admin/zaposleni/create" class="action-btn">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Dodaj zaposlenog</span>
-                </a>
-                
-                <a href="/admin/proizvodi/create" class="action-btn">
-                    <i class="fas fa-cube"></i>
-                    <span>Dodaj proizvod</span>
-                </a>
-                
-                <a href="/kupci" class="action-btn">
-                    <i class="fas fa-users"></i>
-                    <span>Pregled kupaca</span>
-                </a>
-
-                <a href="/" class="action-btn">
-                    <i class="fas fa-users"></i>
-                    <span>Pocetna</span>
-                </a>
-
-            </div>
-        </div>
         
         
         <div class="admin-footer">

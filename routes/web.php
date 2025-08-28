@@ -78,4 +78,7 @@ Route::get('/proizvodi', [ProizvodController::class, 'index'])->name('proizvodi'
 Route::get('/proizvod/{id}', [ProizvodController::class, 'show'])->name('proizvod.detalji');
 
 
-Route::post('/korpa/plati', [App\Http\Controllers\KorpaController::class, 'plati'])->name('korpa.plati')->middleware('auth');
+use App\Http\Controllers\PitanjeController;
+
+Route::get('/pitanja/create', [PitanjeController::class, 'create'])->name('pitanja.create');
+Route::post('/pitanja', [PitanjeController::class, 'store'])->name('pitanja.store');
