@@ -1,0 +1,40 @@
+created:
+    - app/Http/Controllers/KupacController.php
+    - app/Http/Controllers/TipProizvodaController.php
+    - app/Http/Controllers/ProizvodController.php
+    - app/Http/Controllers/PozicijaController.php
+    - app/Http/Controllers/ZaposleniController.php
+    - app/Http/Controllers/PorudzbinaController.php
+    - database/factories/KupacFactory.php
+    - database/factories/TipProizvodaFactory.php
+    - database/factories/ProizvodFactory.php
+    - database/factories/PozicijaFactory.php
+    - database/factories/ZaposleniFactory.php
+    - database/factories/PorudzbinaFactory.php
+    - database/migrations/2025_08_23_170057_create_kupacs_table.php
+    - database/migrations/2025_08_23_170058_create_tip_proizvodas_table.php
+    - database/migrations/2025_08_23_170059_create_proizvods_table.php
+    - database/migrations/2025_08_23_170100_create_pozicijas_table.php
+    - database/migrations/2025_08_23_170101_create_zaposlenis_table.php
+    - database/migrations/2025_08_23_170102_create_porudzbinas_table.php
+    - app/Models/Kupac.php
+    - app/Models/TipProizvoda.php
+    - app/Models/Proizvod.php
+    - app/Models/Pozicija.php
+    - app/Models/Zaposleni.php
+    - app/Models/Porudzbina.php
+    - tests/Feature/Http/Controllers/KupacControllerTest.php
+    - tests/Feature/Http/Controllers/TipProizvodaControllerTest.php
+    - tests/Feature/Http/Controllers/ProizvodControllerTest.php
+    - tests/Feature/Http/Controllers/PozicijaControllerTest.php
+    - tests/Feature/Http/Controllers/ZaposleniControllerTest.php
+    - tests/Feature/Http/Controllers/PorudzbinaControllerTest.php
+updated:
+    - routes/web.php
+models:
+    Kupac: { table: kupci, ime: string, prezime: string, email: 'string unique' }
+    TipProizvoda: { table: tipovi_proizvoda, tip_proizvoda: string }
+    Proizvod: { table: proizvodi, tip_proizvoda_id: 'id foreign', status: string, cena: 'decimal:10,2' }
+    Pozicija: { table: pozicije, naziv_pozicije: string }
+    Zaposleni: { table: zaposleni, ime: string, prezime: string, pozicija_id: 'id foreign' }
+    Porudzbina: { table: porudzbine, kupac_id: 'id foreign', datum_prijave: datetime, zaposleni_id: 'id foreign' }

@@ -1,0 +1,55 @@
+models:
+  Kupac:
+    table: kupci
+    ime: string
+    prezime: string
+    email: string unique
+
+  TipProizvoda:
+    table: tipovi_proizvoda
+    tip_proizvoda: string
+
+  Proizvod:
+    table: proizvodi
+    tip_proizvoda_id: id foreign
+    status: string
+    cena: decimal:10,2
+
+  Pozicija:
+    table: pozicije
+    naziv_pozicije: string
+
+  Zaposleni:
+    table: zaposleni
+    ime: string
+    prezime: string
+    pozicija_id: id foreign
+
+  Porudzbina:
+    table: porudzbine
+    kupac_id: id foreign
+    datum_prijave: datetime
+    zaposleni_id: id foreign
+
+controllers:
+  KupacController:
+    resource: true
+  TipProizvodaController:
+    resource: true
+  ProizvodController:
+    resource: true
+  PozicijaController:
+    resource: true
+  ZaposleniController:
+    resource: true
+  PorudzbinaController:
+    resource: true
+
+routes:
+  web:
+    kupci: resource
+    tipovi_proizvoda: resource
+    proizvodi: resource
+    pozicije: resource
+    zaposleni: resource
+    porudzbine: resource
