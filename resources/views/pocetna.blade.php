@@ -252,10 +252,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#o-nama">O Nama</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#galerija">Galerija</a>
-                    </li>
+                    </li>           
                     <li class="nav-item">
                         <a class="nav-link" href="#kontakt">Kontakt</a>
                     </li>
@@ -334,19 +331,13 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $proizvod->Naziv }}</h5>
                                 <p class="card-text">
-                                    @if($proizvod->Opis) {{ $proizvod->Opis }} @else Kvalitetan proizvod. @endif
+                                    @if($proizvod->Opis) {{ $proizvod->Opis }} @else Domaci proizvod. @endif
                                 </p>
 
                                 @auth
-                                <div class="d-flex gap-2 mb-2">
-                                    <input type="number" id="kolicina-{{ $proizvod->ProizvodID }}" value="1" min="1" class="form-control" style="width: 70px;">
-                                    <button type="button" onclick="dodajUKorpu({{ $proizvod->ProizvodID }})" class="btn btn-success">Dodaj u korpu</button>
-                                </div>
+                            
                                 @endauth
-
-                                <div id="msg-{{ $proizvod->ProizvodID }}" class="mt-2 alert alert-success" style="display:none;">
-                                    <i class="fas fa-check-circle me-1"></i> Proizvod dodat u korpu!
-                                </div>
+  
 
                                 <div class="d-grid">
                                     <button onclick="prikaziDetalje({{ $proizvod->ProizvodID }})" class="btn btn-primary">
@@ -355,9 +346,6 @@
                                 </div>
 
                                 @auth
-                                <div id="msg-{{ $proizvod->ProizvodID }}" class="mt-2 alert alert-success" style="display:none;">
-                                    <i class="fas fa-check-circle me-1"></i> Proizvod dodat u korpu!
-                                </div>
                                 @endauth
                             </div>
                         </div>
@@ -525,8 +513,7 @@
                     <h5 class="text-warning">Brzi linkovi</h5>
                     <ul class="list-unstyled">
                         <li><a href="#ponuda" class="text-white text-decoration-none">Ponuda</a></li>
-                        <li><a href="#o-nama" class="text-white text-decoration-none">O Nama</a></li>
-                        <li><a href="#galerija" class="text-white text-decoration-none">Galerija</a></li>
+                        <li><a href="#o-nama" class="text-white text-decoration-none">O Nama</a></li>       
                         <li><a href="#kontakt" class="text-white text-decoration-none">Kontakt</a></li>
                     </ul>
                 </div>
@@ -565,8 +552,8 @@
                             <h4 class="text-primary" id="modalCena"></h4>
                             <p id="modalOpis"></p>
                             <div class="d-flex align-items-center mt-4">
-                                <input type="number" id="modalKolicina" value="1" min="1" class="form-control me-2" style="width: 100px;">
-                                <button class="btn btn-success" onclick="dodajUKorpuIzModala()">Dodaj u korpu</button>
+                                <input type="number" id="modalKolicina"  class="form-control me-2" style="width: 100px;">
+                                
                             </div>
                         </div>
                     </div>

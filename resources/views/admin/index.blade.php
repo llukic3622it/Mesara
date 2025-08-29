@@ -265,7 +265,7 @@
                 <h3>Upravljanje kupcima</h3>
                 <p>Pregledajte i upravljajte podacima o kupcima.</p>
                 <div>
-                    <a href="/kupci" class="admin-btn btn-customers">Pregled kupaca</a>
+                    <a href="/kupci" class="admin-btn btn-customers">Dodaj kupca</a>
                 </div>
             </div>
         </div>
