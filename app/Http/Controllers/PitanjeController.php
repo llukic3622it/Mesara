@@ -23,7 +23,7 @@ class PitanjeController extends Controller
         // Validacija podataka iz forme
         $validated = $request->validate([
             'user_id'    => 'required|exists:users,id',
-            'ProizvodID' => 'required|exists:proizvods,ProizvodID', // ✅ validacija po tvom ključu
+            'ProizvodID' => 'required|exists:proizvods,ProizvodID', // 
             'pitanje'    => 'required|string|max:255',
         ]);
 
@@ -35,7 +35,7 @@ class PitanjeController extends Controller
             DB::table('pitanja')->insert([
                 'user_id'     => $request->user_id,
                 'name'        => $user->name,
-                'proizvod_id' => $request->ProizvodID,   // 👈 usklađeno sa bazom
+                'proizvod_id' => $request->ProizvodID,   // 
                 'pitanje'     => $request->pitanje,
                 'created_at'  => now(),
                 'updated_at'  => now(),

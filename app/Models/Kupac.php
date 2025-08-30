@@ -18,7 +18,7 @@ class Kupac extends Model
         'email',
         'telefon',
         'adresa',
-        'user_id' // DODAJ OVO
+        'user_id' 
     ];
 
     protected $casts = [
@@ -26,13 +26,13 @@ class Kupac extends Model
         'updated_at' => 'datetime'
     ];
 
-    // DODAJ RELACIJU KA USERU
+    
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    // DODAJ ACCESSOR ZA PUNO IME (ako ti treba)
+    
     public function getImePrezimeAttribute(): string
     {
         return $this->ime . ' ' . $this->prezime;

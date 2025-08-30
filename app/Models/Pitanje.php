@@ -12,7 +12,7 @@ class Pitanje extends Model
     // Naziv tabele
     protected $table = 'pitanja';
 
-    // Omogućite masovno dodeljivanje za sve kolone
+    
     protected $guarded = [];
 
     // Ili eksplicitno navedite fillable polja

@@ -194,10 +194,7 @@
                 
                 // Simulacija slanja podataka na server
                 try {
-                    // Ovde bi bio AJAX poziv ili fetch ka serveru
-                    // Simuliramo uspešan odgovor
                     
-                    // Dodajemo novo pitanje u listu
                     const newQuestion = {
                         id: questions.length > 0 ? Math.max(...questions.map(q => q.id)) + 1 : 1,
                         user_id: userId,

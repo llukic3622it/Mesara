@@ -11,7 +11,7 @@ class PocetnaController extends Controller
         // Učitavamo sve proizvode iz baze
         $proizvodi = Proizvod::all();
 
-        // Prosleđujemo u view
+        // 
         return view('pocetna', compact('proizvodi'));
     }
 }

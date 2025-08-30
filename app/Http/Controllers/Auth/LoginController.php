@@ -24,7 +24,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Provera da li je korisnik admin
-            if (Auth::user()->is_admin) {  // pretpostavimo da u users tabeli imaš kolonu 'is_admin'
+            if (Auth::user()->is_admin) {  
                 return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->route('proizvodi.index'); // obični korisnik ide na početnu

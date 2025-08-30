@@ -17,7 +17,7 @@ class Porudzbina extends Model
         'KupacID',
         'Datum_prijave',
         'ZaposleniID',
-        'proizvod_id', // DODATO
+        'proizvod_id', 
         'created_at',
         'updated_at'
     ];
@@ -28,17 +28,13 @@ class Porudzbina extends Model
         'updated_at' => 'datetime',
     ];
 
-    /**
-     * Relacija sa proizvodom
-     */
+    
     public function proizvod()
     {
         return $this->belongsTo(Proizvod::class, 'proizvod_id', 'ProizvodID');
     }
 
-    /**
-     * Relacija sa kupcem
-     */
+    
     public function kupac()
     {
         return $this->belongsTo(Kupac::class, 'KupacID', 'KupacID');

@@ -21,7 +21,7 @@ class KorpaController extends Controller
             $ukupno += $item['cena'] * $item['kolicina'];
         }
         
-        return view('korpa', compact('korpa', 'ukupno')); // Promenjeno iz 'korpa.index' u 'korpa'
+        return view('korpa', compact('korpa', 'ukupno')); 
     }
 
     // Dodavanje proizvoda u korpu (AJAX)

@@ -9,15 +9,15 @@ class Porudzbina extends Model
 {
     use HasFactory;
 
-    // VAŽNO: Proveri da li se tabela zaista zove 'porudzbinas'
+    
     protected $table = 'porudzbinas';
     
-    // VAŽNO: Proveri da li je primarni ključ zaista 'PorudzbinaID'
+    
     protected $primaryKey = 'PorudzbinaID';
     
     public $timestamps = true;
     
-    // VAŽNO: Proveri tačne nazive kolona u bazi
+    
     protected $fillable = [
         'KupacID',
         'Datum_prijave', 
