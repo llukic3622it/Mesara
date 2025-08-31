@@ -23,11 +23,15 @@
                                 <label for="TipProizvodaID" class="form-label">Tip proizvoda</label>
                                 <select class="form-select" id="TipProizvodaID" name="TipProizvodaID" required>
                                     <option value="">Izaberi tip proizvoda</option>
-                                    @foreach($tipovi as $tip)
-                                        <option value="{{ $tip->TipProizvodaID }}" {{ old('TipProizvodaID', $proizvod->TipProizvodaID) == $tip->TipProizvodaID ? 'selected' : '' }}>
-                                            {{ $tip->Naziv }}
-                                        </option>
-                                    @endforeach
+                                    @if($tipoviProizvoda->count() > 0)
+                                        @foreach($tipoviProizvoda as $tip)
+                                            <option value="{{ $tip->TipProizvodaID }}" {{ old('TipProizvodaID', $proizvod->TipProizvodaID) == $tip->TipProizvodaID ? 'selected' : '' }}>
+                                                {{ $tip->TipProizvoda }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option value="">Nema dostupnih tipova proizvoda</option>
+                                    @endif
                                 </select>
                                 @error('TipProizvodaID')
                                     <div class="text-danger">{{ $message }}</div>

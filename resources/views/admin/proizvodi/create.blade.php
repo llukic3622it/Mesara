@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj proizvod</title>
+    <title>Dodaj novi proizvod</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,16 +17,20 @@
                     <div class="card-body">
                         <form action="{{ route('admin.proizvodi.store') }}" method="POST">
                             @csrf
-                            
+
                             <div class="mb-3">
                                 <label for="TipProizvodaID" class="form-label">Tip proizvoda</label>
                                 <select class="form-select" id="TipProizvodaID" name="TipProizvodaID" required>
                                     <option value="">Izaberi tip proizvoda</option>
-                                    @foreach($tipovi as $tip)
-                                        <option value="{{ $tip->TipProizvodaID }}" {{ old('TipProizvodaID') == $tip->TipProizvodaID ? 'selected' : '' }}>
-                                            {{ $tip->TipProizvoda }} <!-- Ispravljeno: $tip->TipProizvoda umesto $tip->Naziv -->
-                                        </option>
-                                    @endforeach
+                                    @if($tipoviProizvoda->count() > 0)
+                                        @foreach($tipoviProizvoda as $tip)
+                                            <option value="{{ $tip->TipProizvodaID }}" {{ old('TipProizvodaID') == $tip->TipProizvodaID ? 'selected' : '' }}>
+                                                {{ $tip->TipProizvoda }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option value="">Nema dostupnih tipova proizvoda</option>
+                                    @endif
                                 </select>
                                 @error('TipProizvodaID')
                                     <div class="text-danger">{{ $message }}</div>
@@ -70,7 +74,7 @@
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <a href="{{ route('admin.proizvodi.index') }}" class="btn btn-secondary me-md-2">Nazad</a>
-                                <button type="submit" class="btn btn-primary">Sačuvaj proizvod</button>
+                                <button type="submit" class="btn btn-primary">Dodaj proizvod</button>
                             </div>
                         </form>
                     </div>

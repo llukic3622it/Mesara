@@ -9,11 +9,12 @@ class TipProizvoda extends Model
 {
     use HasFactory;
 
-    protected $table = 'tip_proizvodas';
-    protected $primaryKey = 'TipProizvodaID';
+    protected $table = 'tip_proizvodas'; 
+    protected $primaryKey = 'TipProizvodaID'; 
 
-    public $timestamps = false; // ako nema created_at, updated_at
+    public $timestamps = false;
 
+    // AŽURIRANO: Promenjeno u 'TipProizvoda' kako odgovara imenu kolone u bazi
     protected $fillable = [
         'TipProizvoda',
     ];
@@ -26,6 +27,4 @@ class TipProizvoda extends Model
     {
         return $this->hasMany(Proizvod::class, 'TipProizvodaID', 'TipProizvodaID');
     }
-
 }
-

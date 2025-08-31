@@ -34,7 +34,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('proizvodi/{id}/edit', [App\Http\Controllers\Admin\ProizvodController::class, 'edit'])->name('proizvodi.edit');
     Route::put('proizvodi/{id}', [App\Http\Controllers\Admin\ProizvodController::class, 'update'])->name('proizvodi.update');
     Route::delete('proizvodi/{id}', [App\Http\Controllers\Admin\ProizvodController::class, 'destroy'])->name('proizvodi.destroy');
-
+    
     // Zaposleni
     Route::get('zaposleni', [ZaposleniController::class, 'index'])->name('zaposleni.index');
     Route::get('zaposleni/create', [ZaposleniController::class, 'create'])->name('zaposleni.create');
@@ -82,3 +82,9 @@ use App\Http\Controllers\PitanjeController;
 
 Route::get('/pitanja/create', [PitanjeController::class, 'create'])->name('pitanja.create');
 Route::post('/pitanja', [PitanjeController::class, 'store'])->name('pitanja.store');
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    // ...
+    Route::get('proizvodi/{id}/edit', [App\Http\Controllers\Admin\ProizvodController::class, 'edit'])->name('proizvodi.edit');
+    // ...
+});

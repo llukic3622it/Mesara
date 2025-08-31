@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TipProizvoda;
+use App\Models\Proizvod; 
 
 class TipProizvodaController extends Controller
 {
@@ -30,7 +31,7 @@ class TipProizvodaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Naziv' => 'required|string|max:255|unique:tip_proizvoda,Naziv',
+            'TipProizvoda' => 'required|string|max:255|unique:tip_proizvodas,TipProizvoda', // AŽURIRANO
         ]);
 
         TipProizvoda::create($request->all());
@@ -49,12 +50,14 @@ class TipProizvodaController extends Controller
     }
 
     /**
-     * Prikaz forme za izmenu tipa proizvoda.
+     * Prikaz forme za izmenu TIPA PROIZVODA.
      */
     public function edit($id)
     {
-        $tip = TipProizvoda::findOrFail($id);
-        return view('admin.tipovi_proizvoda.edit', compact('tip'));
+        $proizvod = Proizvod::findOrFail($id);
+        $tipoviProizvoda = TipProizvoda::all();
+        
+        return view('admin.proizvodi.edit', compact('proizvod', 'tipoviProizvoda'));
     }
 
     /**
@@ -63,7 +66,7 @@ class TipProizvodaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Naziv' => 'required|string|max:255|unique:tip_proizvoda,Naziv,' . $id . ',TipProizvodaID',
+            'TipProizvoda' => 'required|string|max:255|unique:tip_proizvodas,TipProizvoda,' . $id . ',TipProizvodaID', // AŽURIRANO
         ]);
 
         $tip = TipProizvoda::findOrFail($id);

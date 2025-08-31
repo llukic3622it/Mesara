@@ -23,8 +23,8 @@ class ProizvodController extends Controller
      */
     public function create()
     {
-        $tipovi = TipProizvoda::all();
-        return view('admin.proizvodi.create', compact('tipovi'));
+        $tipoviProizvoda = TipProizvoda::all();
+        return view('admin.proizvodi.create', compact('tipoviProizvoda'));
     }
 
     /**
@@ -46,28 +46,22 @@ class ProizvodController extends Controller
             ->with('success', 'Proizvod je uspešno kreiran.');
     }
 
-    /**
-     * Prikazuje detalje određenog proizvoda
-     */
+    
     public function show($id)
     {
         $proizvod = Proizvod::with('tipProizvoda')->findOrFail($id);
         return view('admin.proizvodi.show', compact('proizvod'));
     }
 
-    /**
-     * Prikazuje formu za izmenu proizvoda
-     */
+    
     public function edit($id)
     {
         $proizvod = Proizvod::findOrFail($id);
-        $tipovi = TipProizvoda::all();
-        return view('admin.proizvodi.edit', compact('proizvod', 'tipovi'));
+        $tipoviProizvoda = TipProizvoda::all();
+        return view('admin.proizvodi.edit', compact('proizvod', 'tipoviProizvoda'));
     }
 
-    /**
-     * Ažurira proizvod u bazi
-     */
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -85,9 +79,7 @@ class ProizvodController extends Controller
             ->with('success', 'Proizvod je uspešno ažuriran.');
     }
 
-    /**
-     * Briše proizvod iz baze
-     */
+
     public function destroy($id)
     {
         $proizvod = Proizvod::findOrFail($id);
