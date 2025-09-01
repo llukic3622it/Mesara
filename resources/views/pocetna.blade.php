@@ -274,7 +274,7 @@
                         </li>
 
                         {{-- Ako je admin --}}
-                        @if(Auth::check() && Auth::user()->email === 'admin@example.com')
+                        @if(Auth::check() && (Auth::user()->email === 'admin@example.com' || Auth::user()->email === 'mesar@example.com'))
                             <li class="nav-item">
                                 <a class="nav-link btn btn-warning text-dark" href="http://127.0.0.1:8000/admin">
                                     🛠 Admin Panel

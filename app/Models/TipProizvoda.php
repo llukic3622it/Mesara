@@ -14,7 +14,7 @@ class TipProizvoda extends Model
 
     public $timestamps = false;
 
-    // AŽURIRANO: Promenjeno u 'TipProizvoda' kako odgovara imenu kolone u bazi
+    
     protected $fillable = [
         'TipProizvoda',
     ];
